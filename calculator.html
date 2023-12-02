@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    
+
+</head>
+
+<body text="center">
+    <div>
+        <button onclick="addDigit(1)">1</button>
+        <button onclick="addDigit(2)">2</button>
+        <button onclick="addDigit(3)">3</button>
+        <button onclick="oper('+')">+</button>
+        <br>
+        <button onclick="addDigit(4)">4</button>
+        <button onclick="addDigit(5)">5</button>
+        <button onclick="addDigit(6)">6</button>
+        <button onclick="oper('-')">-</button>
+
+        <br>
+        <button onclick="addDigit(7)">7</button>
+        <button onclick="addDigit(8)">8</button>
+        <button onclick="addDigit(9)">9</button>
+
+        <br>
+        <button onclick="clean()">C</button>
+        <button onclick="addDigit(0)">0</button>
+        <button onclick="equals()">=</button>
+        <button onclick="oper('/')">/</button>
+        <button onclick="oper('x')">x</button>
+        <br>
+    </div>
+    <input id="OnScreen">
+    <script>
+        let clearFlag = false;
+        let lastOp = '';
+        num1 = 0;
+
+
+        function oper(op) {
+            clearFlag = true;
+            lastOp = op;
+            num1 = OnScreen.value
+
+        }
+
+        function addDigit(digit) {
+            if (clearFlag) {
+                OnScreen.value = "";
+                clearFlag = false;
+            }
+            OnScreen.value += digit;
+        }
+        function clean() {
+            clearFlag = false;
+            num1 = "";
+            OnScreen.value = "";
+            lastOp = '';
+        }
+        function equals() {
+            if (lastOp === '+') {
+                OnScreen.value = +num1 + +OnScreen.value;
+            } else if (lastOp === '-') {
+                OnScreen.value = +num1 - +OnScreen.value;
+            } else if (lastOp === '/') {
+                OnScreen.value = +num1 / +OnScreen.value;
+            } else if (lastOp === 'x') {
+                OnScreen.value = +num1 * +OnScreen.value;
+            }}
+
+
+    </script>
+
+
+
+</body>
+
+</html>
