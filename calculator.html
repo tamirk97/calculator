@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calculator</title>
-    
+
 
 </head>
 
@@ -25,13 +25,13 @@
         <button onclick="addDigit(7)">7</button>
         <button onclick="addDigit(8)">8</button>
         <button onclick="addDigit(9)">9</button>
+        <button onclick="oper('x')">x</button>
 
         <br>
         <button onclick="clean()">C</button>
         <button onclick="addDigit(0)">0</button>
         <button onclick="equals()">=</button>
         <button onclick="oper('/')">/</button>
-        <button onclick="oper('x')">x</button>
         <br>
     </div>
     <input id="OnScreen">
@@ -70,7 +70,8 @@
                 OnScreen.value = +num1 / +OnScreen.value;
             } else if (lastOp === 'x') {
                 OnScreen.value = +num1 * +OnScreen.value;
-            }}
+            }
+        }
 
 
     </script>
